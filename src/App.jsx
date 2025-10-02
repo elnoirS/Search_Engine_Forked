@@ -3,7 +3,7 @@ import './App.css';
 import SearchBar from './components/searchbar';
 import NavBar from './components/navBar';
 import NASASearch from './components/NASASearch';
-import TeamLogo from './assets/teamlogo.png'
+import AppLogo from './assets/app_logos/bioseeker_black.png'
 
 export default function App() {
   const [theme, setTheme] = useState('light');
@@ -20,12 +20,15 @@ export default function App() {
       {activeView === 'home' && (
         <main className='container'>
           <img 
-            src={TeamLogo} 
+            src={AppLogo} 
             className='logo main' 
             alt='Russtronauts Team Logo - Space Biology Engine'
             role="img"
           />
-          <h1 className='title' id="main-heading">Space Biology Search</h1>
+          <div className='home-text'>
+            <h1 className='title' id="main-heading">Welcome to BioSeeker!</h1>
+            <p className='supp-text'>What are you curious about?</p>
+          </div>
           <SearchBar />
           <p className="sub-note">
             or explore <a onClick={() => setActiveView('nasa')} tabIndex="0" role="link" aria-label="NASA Knowledge Engine" style={{cursor: 'pointer'}}>NASA Knowledge Engine</a>...
@@ -36,7 +39,7 @@ export default function App() {
       {activeView === 'nasa' && (
         <main className='container'>
           {/* <NASASearch /> */}
-          <h1 className='title'>🚀 NASA Knowledge Engine</h1>
+          <h1 className='title-1'>NASA Knowledge Engine</h1>
           <p style={{textAlign: 'center', color: '#666', marginTop: '20px'}}>
             NASA Knowledge Engine coming soon...
           </p>
@@ -45,7 +48,7 @@ export default function App() {
 
       {activeView === 'browse' && (
         <main className='container'>
-          <h1 className='title'>Browse Topics</h1>
+          <h1 className='title-1'>Browse Topics</h1>
           <p style={{textAlign: 'center', color: '#666', marginTop: '20px'}}>
             Browse functionality coming soon...
           </p>
@@ -54,7 +57,7 @@ export default function App() {
 
       {activeView === 'about' && (
         <main className='container'>
-          <h1 className='title'>About</h1>
+          <h1 className='title-1'>About</h1>
           <div style={{maxWidth: '800px', margin: '0 auto', textAlign: 'left', padding: '20px'}}>
             <h3>Space Biology Knowledge Engine</h3>
             <p>

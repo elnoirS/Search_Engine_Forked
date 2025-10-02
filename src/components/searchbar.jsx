@@ -1,7 +1,7 @@
 import { useState } from "react";
 import './searchbar.css'
 import SearchButton from '../assets/main_page_icons/search.svg';
-import AdvancedButton from '../assets/main_page_icons/advanced.svg';
+import ClearIcon from '../assets/main_page_icons/clear.svg';
 import useEnhancedPublications from "../hooks/useEnhancedPublications";
 
 // Clean Perplexity AI responses
@@ -116,17 +116,16 @@ export default function SearchBar() {
                     role="combobox"
                 />
                 {searchText && (
-                    <button 
+                    <img
+                        src={ClearIcon}
                         onClick={clearSearch}
                         className="search-clear-btn"
                         aria-label="Clear search"
-                        type="button"
                     >
-                        ✕
-                    </button>
+                    </img>
                 )}
-                <span id="search-instructions" className="sr-only">
-                    Use arrow keys to navigate results, Enter to open, Escape to clear
+                <span className='search-instructions'>
+                    Use arrow keys to navigate results, enter to open, and escape to clear.
                 </span>
 
                 {/* Enhanced Search Results */}
@@ -142,24 +141,19 @@ export default function SearchBar() {
                                 <div className="loading-spinner" aria-hidden="true"></div>
                                 <div className="search-phase" aria-label={getPhaseMessage()}>{getPhaseMessage()}</div>
                                 {enhancedQuery && enhancedQuery.keywords && (
-                                    <div className="enhanced-keywords">
+                                    <div className="search-phase">
                                         <small>Searching: {enhancedQuery.keywords.slice(0, 5).join(', ')}</small>
                                     </div>
                                 )}
                             </div>
                         ) : (
                             <>
-                                {enhancedQuery && !enhancedQuery.fallback && (
-                                    <div className="ai-enhancement-info">
-                                        <small>🤖 AI-enhanced search active</small>
-                                    </div>
-                                )}
                                 <ul className="search-results-list" role="presentation">
                                     {publications.length === 0 ? (
                                         <li className="no-result" role="option">No results found</li>
                                     ) : (
                                         publications.map((pub, idx) => (
-                                            <div
+                                            <span
                                                 key={pub.id || idx}
                                                 onClick={() => handleResultClick(pub, idx)}
                                                 className={`search-result-link ${selectedIndex === idx ? 'selected' : ''} ${previewItem?.id === pub.id ? 'active-preview' : ''} ${pub.isNASADirect ? 'nasa-direct-result' : ''}`}
@@ -205,7 +199,7 @@ export default function SearchBar() {
                                                         </div>
                                                     </div>
                                                 </li>
-                                            </div>
+                                            </span>
                                         ))
                                     )}
                                 </ul>
@@ -218,7 +212,7 @@ export default function SearchBar() {
                 {/* <img onClick={handleSearch} src={SearchButton} className='search-button' alt='Search' /> */}
 
                 {/* Advanced Search Button*/}
-                <img src={AdvancedButton} href='' className='advanced-button' />
+                {/* <img src={AdvancedButton} href='' className='advanced-button' /> */}
             </div>
 
             {/* Preview Box - First Click */}

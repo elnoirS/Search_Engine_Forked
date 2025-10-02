@@ -1,11 +1,24 @@
 .navbar {
     width: 100vw;
+    height: 11vh;
     display: flex;
     align-items: center;
-    padding: 10px 5%;
+    padding: 10px 10%;
     box-sizing: border-box;
-    border-radius: 12px;
     transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.team-logo {
+    width: 11vw;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    will-change: filter, transform;
+    transition: filter 300ms, transform 0.3s ease;
+}
+
+body.dark .team-logo {
+    filter: invert(1);
 }
 
 .navbar ul li a {
@@ -20,9 +33,14 @@
     font-weight: 600;
 }
 
-.team-logo {
-    width: 75px;
-    cursor: pointer;
+/* di nakacenter yung mga options -aldous */
+.options {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 ul {
@@ -38,7 +56,7 @@ ul {
 
 ul li {
     display: inline-block;
-    margin: 10px 25px;
-    font-size: 18px;
+    margin: 0 4vw 0 0;
+    font-size: 1vw;
     cursor: pointer;
 }
