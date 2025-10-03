@@ -26,22 +26,12 @@
   padding: 1em;
 }
 
-.logo:hover {
-  filter: drop-shadow(0 0 2em #9c88ff);
+/* add animation to scaling */
+.logo .hover {
   transform: scale(1.03);
-}
-
-/* logo in dark mode */
-body.dark .logo {
-  filter: invert(1);
 }
 
 /* nagiging balck yung logo pag hinover ;( -aldous */
-body.dark .logo:hover {
-  filter: drop-shadow(0 0 2em #9c88ff);
-  transform: scale(1.03);
-}
-
 @keyframes fadeInScale {
   from {
     opacity: 0;
@@ -77,12 +67,6 @@ body.dark .logo:hover {
   .title {
     font-size: 2em;
   }
-}
-
-.sub-note {
-  margin-top: 2em;
-  animation: fadeIn 0.8s ease-out 0.3s both;
-  transition: opacity 0.3s;
 }
 
 .sub-note:hover {

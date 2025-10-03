@@ -124,9 +124,9 @@ export default function SearchBar() {
                     >
                     </img>
                 )}
-                <span className='search-instructions'>
+                {/* <span className='search-instructions'>
                     Use arrow keys to navigate results, enter to open, and escape to clear.
-                </span>
+                </span> */}
 
                 {/* Enhanced Search Results */}
                 {showResults && (
